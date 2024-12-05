@@ -21,7 +21,7 @@ class PublicUserApiTests(TestCase):
             'password': 'test1234',
             'name': 'Test Name'
         }
-        res = self.client.post(CREATE_USER_URL, **payload)
+        res = self.client.post(CREATE_USER_URL, payload)
         
         self.assertEqual(res.status_code, status.HTTP_201_CREATED)
         user = get_user_model().objects.get(email=payload['email'])
