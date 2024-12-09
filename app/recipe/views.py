@@ -28,7 +28,10 @@ class RecipeViewSet(viewsets.ModelViewSet):
         
         
 
-class TagViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
+class TagViewSet(mixins.ListModelMixin, 
+                 mixins.UpdateModelMixin,
+                 mixins.DestroyModelMixin,
+                 viewsets.GenericViewSet):
     serializer_class = serializers.TagSerializer
     queryset = Tag.objects.all()
     authentication_classes = [TokenAuthentication]
